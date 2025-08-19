@@ -6,6 +6,7 @@ import { Pressable, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './index.styles'
 import { type Item } from './index.types'
+import { Link } from 'expo-router'
 
 export default React.memo(function SelectAccountType() {
   const items = React.useMemo<Item[]>(
@@ -18,7 +19,7 @@ export default React.memo(function SelectAccountType() {
 
   const Items = React.useMemo(
     () => items.map(({ type, icon, text }) => (
-      <Pressable key={ type } style={ styles.item }>
+      <Link href='/(tabs)/home' key={ type } style={ styles.item }>
         <View style={ styles.itemLeft }>
           <View style={ styles.itemLeftIconContainer }>
             <Image style={ styles.itemLeftIcon } source={ icon } />
@@ -26,7 +27,7 @@ export default React.memo(function SelectAccountType() {
           <Text style={ styles.itemLeftText }>{ text }</Text>
         </View>
         <Image style={ styles.itemRight } source={ require('@/assets/images/image6.png') } />
-      </Pressable>
+      </Link>
     )),
     [items]
   )
