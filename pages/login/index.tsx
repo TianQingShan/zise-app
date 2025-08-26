@@ -6,28 +6,22 @@ import { Pressable, Text, TextInput, View, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './index.styles'
 import { AuthType } from '@/types/index.types'
-import { Link } from 'expo-router'
+import { Link, useRouter } from 'expo-router'
+import CustomTextInput from '@/components/custom-text-input'
 
 export default React.memo(function Login() {
+  const router = useRouter()
   const [selectedType, setSelectedType] = React.useState<AuthType>()
   const EmailLoginView = React.useMemo(
     () => (
       <View style={ styles.emailLoginView }>
         <View style={ styles.emailLoginInputItem }>
           <Text style={ styles.emailLoginInputItemLabel }>您的电子邮箱</Text>
-          <TextInput style={ styles.emailLoginInputItemInput } />
+          <CustomTextInput />
         </View>
         <View style={ styles.emailLoginInputItem }>
           <Text style={ styles.emailLoginInputItemLabel }>密码</Text>
-          <View>
-            <TextInput style={ styles.emailLoginInputItemInput } secureTextEntry />
-            <Pressable style={ styles.emailLoginInputItemInputIconBox }>
-              <Image
-                style={ styles.emailLoginInputItemInputIcon }
-                source={ require('@/assets/images/image2.png') }
-              />
-            </Pressable>
-          </View>
+          <CustomTextInput secureTextEntry isShowSmallEyes={ true } />
         </View>
       </View>
     ),
@@ -71,20 +65,22 @@ export default React.memo(function Login() {
           { LoginViewRender }
           <View style={ styles.helpTextView }>
             <View style={ styles.helpTextLeftView }>
-              <View style={ styles.helpTextLeftViewSelectBox } />
+              <Pressable>
+                <View style={ styles.helpTextLeftViewSelectBox } />
+              </Pressable>
               <Text style={ styles.helpTextLeftViewText }>我同意</Text>
               <Text style={ { ...styles.helpTextLeftViewText, textDecorationLine: 'underline' } } >《隐私政策》</Text>
             </View>
-            <Link href='/unable-login'>
+            <Link href='/unable-login' suppressHighlighting>
               <Text style={ styles.helpTextRightViewText }>无法登录?</Text>
             </Link>
           </View>
-          <Pressable style={ styles.loginButton }>
+          <Pressable style={ styles.loginButton } onPress={ () => router.push('/(tabs)/home') }>
             <Text style={ styles.loginButtonText }>开始使用</Text>
           </Pressable>
           <View style={ styles.newUserTextView }>
             <Text style={ styles.newUserTextViewText1 }>Zise 新用户？</Text>
-            <Link href='/register'>
+            <Link href='/register' suppressHighlighting>
               <Text style={ styles.newUserTextViewText2 }>注册</Text>
             </Link>
           </View>

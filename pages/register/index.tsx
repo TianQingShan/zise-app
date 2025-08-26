@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './index.styles'
 import { AuthType } from '@/types/index.types'
 import { useRouter } from 'expo-router'
+import CustomTextInput from '@/components/custom-text-input'
 
 export default React.memo(function Register() {
   const router = useRouter()
@@ -22,7 +23,7 @@ export default React.memo(function Register() {
     () => (
       <View style={ styles.emailRegisterView }>
         <Text style={ styles.emailRegisterViewLable }>您的电子邮箱</Text>
-        <TextInput style={ styles.emailRegisterViewInput } />
+        <CustomTextInput />
       </View>
     ),
     []

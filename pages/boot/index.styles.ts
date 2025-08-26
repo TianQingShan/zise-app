@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const { width, height } = Dimensions.get('screen')
 
 export default StyleSheet.create({
   container: {
@@ -29,7 +31,7 @@ export default StyleSheet.create({
     flexGrow: 1
   },
   pagerViewItemTopImage: {
-    flexGrow: 1,
+    height: height * 0.517,
     alignItems: 'center',
     justifyContent: 'center'
   },

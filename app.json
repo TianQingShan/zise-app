@@ -9,7 +9,11 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.qingshan.tian.zise",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -44,6 +48,11 @@
       "eas": {
         "projectId": "391dcd05-281a-4dbe-892f-61b5d0187ab0"
       }
+    }
+  },
+  "build": {
+    "preview": {
+      "distribution": "internal"
     }
   }
 }

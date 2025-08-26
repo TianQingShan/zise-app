@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
     paddingTop: 14,
     backgroundColor: '#fff',
     flexGrow: 1
   },
   top: {
+    marginHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
@@ -32,8 +32,65 @@ export default StyleSheet.create({
     width: 40,
     aspectRatio: 1
   },
+  kycCertification: {
+    marginTop: 24,
+    marginStart: 16,
+    marginEnd: 24,
+    backgroundColor: '#f3f3f3',
+    borderRadius: 8,
+    borderWidth: 0.5,
+    borderColor: '#e6e6e6',
+    paddingHorizontal: 16,
+    paddingBottom: 11,
+    paddingTop: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 16
+  },
+  kycCertificationLeft: {
+    width: 12,
+    aspectRatio: 1,
+    borderRadius: 999,
+    backgroundColor: '#556aff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  kycCertificationLeftIcon: {
+    width: 1,
+    height: 7
+  },
+  kycCertificationRightText1: {
+    fontSize: 13,
+    color: '#000',
+    fontWeight: 600
+  },
+  kycCertificationRightFailText: {
+    flexDirection: 'row'
+  },
+  kycCertificationRightText2: {
+    fontSize: 13,
+    color: '#000',
+    fontWeight: 300,
+    marginTop: 4
+  },
+  kycCertificationRightJump: {
+    marginTop: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 16
+  },
+  kycCertificationRightText3: {
+    fontSize: 12,
+    color: '#556aff',
+    fontWeight: 500
+  },
+  kycCertificationRightIcon: {
+    width: 8,
+    height: 6
+  },
   assets: {
-    marginTop: 28
+    marginHorizontal: 16,
+    marginTop: 22
   },
   assetsText1: {
     fontSize: 16,
@@ -49,35 +106,9 @@ export default StyleSheet.create({
     fontSize: 14,
     color: '#808080'
   },
-  buttons: {
-    marginTop: 26,
-    flexDirection: 'row',
-    columnGap: 8
-  },
-  button1: {
-    borderRadius: 999,
-    backgroundColor: '#556aff',
-    paddingVertical: 6,
-    paddingHorizontal: 24
-  },
-  button1Text: {
-    fontSize: 14,
-    color: '#fff',
-    textAlign: 'center'
-  },
-  button2: {
-    borderRadius: 999,
-    backgroundColor: '#f5f5f5',
-    paddingVertical: 6,
-    paddingHorizontal: 24
-  },
-  button2Text: {
-    fontSize: 14,
-    color: '#1a1a1a',
-    textAlign: 'center'
-  },
   cardItems: {
-    marginTop: 20,
+    marginHorizontal: 16,
+    marginTop: 22,
     flexDirection: 'row',
     columnGap: 12
   },
@@ -95,7 +126,7 @@ export default StyleSheet.create({
     columnGap: 4
   },
   cardItemIcon: {
-    width: 48,
+    width: 23,
     aspectRatio: 1
   },
   cardItemCurrency: {
@@ -103,17 +134,43 @@ export default StyleSheet.create({
     color: 'rgba(26, 26, 26, .65)'
   },
   cardItemText1: {
-    marginTop: 16,
+    marginTop: 24,
     fontSize: 24,
     color: 'rgba(0, 0, 0, 1)'
   },
   cardItemText2: {
-    marginTop: 6,
+    marginTop: 4,
     fontSize: 14,
     color: '#828282'
   },
+  buttonItems: {
+    marginTop: 28,
+    flexDirection: 'row',
+    columnGap: 28,
+    marginStart: 25,
+    marginEnd: 30
+  },
+  buttonItem: {
+    width: 0,
+    flexGrow: 1,
+    rowGap: 5,
+  },
+  buttonItemIcon: {
+    aspectRatio: 1,
+    borderRadius: 999,
+    backgroundColor: '#556aff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  buttonItemText: {
+    textAlign: 'center',
+    fontSize: 12,
+    fontWeight: 400,
+    color: '#2c2c2c'
+  },
   record: {
-    marginTop: 36
+    marginHorizontal: 16,
+    marginTop: 35
   },
   recordTitle: {
     fontSize: 20,

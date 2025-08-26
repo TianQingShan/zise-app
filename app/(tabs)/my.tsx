@@ -1,5 +1,5 @@
-import { Text }  from 'react-native'
+import My from '@/pages/my'
 
-export default function TabsRoute() {
-  return <Text>我的</Text>
+export default function MyRoute() {
+  return <My />
 }

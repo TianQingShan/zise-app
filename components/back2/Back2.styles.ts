@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 32
+    minHeight: 32
   },
   backIcon: {
     width: 18,

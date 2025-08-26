@@ -1,10 +1,39 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './index.styles'
 import { Image } from 'expo-image'
+import { type ButtonItem } from './index.types'
+import { useRouter } from 'expo-router'
 
 export default React.memo(function Home() {
+  const router = useRouter()
+  const buttonItems = React.useMemo<ButtonItem[]>(
+    () => ([
+      {
+        icon: require('@/assets/images/image39.png'),
+        iconSize: [20, 20],
+        text: '存款'
+      },
+      {
+        icon: require('@/assets/images/image40.png'),
+        iconSize: [21, 21],
+        text: '汇款'
+      },
+      {
+        icon: require('@/assets/images/image41.png'),
+        iconSize: [19, 14],
+        text: '兑换'
+      },
+      {
+        icon: require('@/assets/images/image42.png'),
+        iconSize: [28, 7],
+        text: '更多'
+      }
+    ]),
+    []
+  )
+
   const CardItems = React.useMemo(
     () => new Array(2).fill(undefined).map((item, index) => (
       <View key={ index } style={ styles.cardItem }>
@@ -38,6 +67,48 @@ export default React.memo(function Home() {
     []
   )
 
+  const KycCertification  = React.useMemo(
+    () => (
+      <View style={ styles.kycCertification }>
+        <View style={ styles.kycCertificationLeft }>
+          <Image style={ styles.kycCertificationLeftIcon } source={ require('@/assets/images/image32.png') } />
+        </View>
+        <View>
+          <Text style={ styles.kycCertificationRightText1 }>
+            需要完成 KYC 验证
+          </Text>
+          {/* <View style={ styles.kycCertificationRightFailText }>
+            <Text style={ styles.kycCertificationRightText1 }>
+              您的KYC认证
+            </Text>
+            <Text style={ { ...styles.kycCertificationRightText1, color: '#f00' } }>失败</Text>
+          </View> */}
+          <Text style={ styles.kycCertificationRightText2 }>请完成 KYC 验证以继续使用全部功能。</Text>
+          <Pressable onPress={ () => router.push('/kyc-certification') } style={ styles.kycCertificationRightJump }>
+            <Text style={ styles.kycCertificationRightText3 }>
+              去认证
+              {/* 重新去认证 */}
+            </Text>
+            <Image style={ styles.kycCertificationRightIcon } source={ require('@/assets/images/image38.png') } />
+          </Pressable>
+        </View>
+      </View>
+    ),
+    []
+  )
+
+  const ButtonItems = React.useMemo(
+    () => buttonItems.map((item, index) => (
+      <View key={ index } style={ styles.buttonItem }>
+        <View style={ styles.buttonItemIcon }>
+          <Image source={ item.icon } style={ { width: item.iconSize[0], height: item.iconSize[1] } } />
+        </View>
+        <Text style={ styles.buttonItemText }>{ item.text }</Text>
+      </View>
+    )),
+    []
+  )
+
   return (
     <SafeAreaView style={ styles.container }>
       <View style={ styles.top }>
@@ -47,23 +118,14 @@ export default React.memo(function Home() {
         <Image style={ styles.topIcon2 } source={ require('@/assets/images/image1.png') } />
         <Image style={ styles.topIcon3 } source={ require('@/assets/images/image21.png') } />
       </View>
+      { KycCertification }
       <View style={ styles.assets }>
         <Text style={ styles.assetsText1 }>我的资产</Text>
         <Text style={ styles.assetsText2 }>1,000.72834</Text>
         <Text style={ styles.assetsText3 }>≈2188.723 USD</Text>
       </View>
-      <View style={ styles.buttons }>
-        <View style={ styles.button1 }>
-          <Text style={ styles.button1Text }>存款</Text>
-        </View>
-        <View style={ styles.button1 }>
-          <Text style={ styles.button1Text }>汇款</Text>
-        </View>
-        <View style={ styles.button2 }>
-          <Text style={ styles.button2Text }>更多</Text>
-        </View>
-      </View>
       <View style={ styles.cardItems }>{ CardItems }</View>
+      <View style={ styles.buttonItems }>{ ButtonItems }</View>
       <View style={ styles.record }>
         <Text style={ styles.recordTitle }>记录</Text>
         <View style={ styles.recordItems }>{ RecordItems }</View>

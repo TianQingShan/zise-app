@@ -29,25 +29,6 @@ export default StyleSheet.create({
     color: 'rgba(26, 26, 26, .61)',
     fontWeight: 400
   },
-  emailLoginInputItemInput: {
-    height: 50,
-    borderWidth: 0.5,
-    borderColor: '#808080',
-    borderRadius: 10,
-    paddingHorizontal: 12,
-    fontSize: 12,
-    color: '#1a1a1a'
-  },
-  emailLoginInputItemInputIconBox: {
-    position: 'absolute',
-    top: '50%',
-    transform: [{ translateY: '-50%' }],
-    end: 16.5
-  },
-  emailLoginInputItemInputIcon: {
-    width: 20,
-    aspectRatio: 1,
-  },
   helpTextView: {
     marginStart: 28,
     marginEnd: 37,

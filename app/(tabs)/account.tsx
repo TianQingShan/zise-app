@@ -1,5 +1,6 @@
 import { Text }  from 'react-native'
+import Account from '@/pages/account'
 
-export default function TabsRoute() {
-  return <Text>账户</Text>
+export default function AccountRoute() {
+  return <Account />
 }

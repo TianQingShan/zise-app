@@ -27,13 +27,6 @@ export default StyleSheet.create({
     fontSize: 12,
     color: 'rgba(26, 26, 26, .61)'
   },
-  emailRegisterViewInput: {
-    height: 46,
-    paddingHorizontal: 20,
-    borderWidth: 0.5,
-    borderColor: 'rgba(128, 128, 128, 1)',
-    borderRadius: 10
-  },
   nextButton: {
     marginTop: 18,
     marginHorizontal: 20,

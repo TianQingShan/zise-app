@@ -5,7 +5,7 @@ import 'react-native-reanimated'
 export default function RootLayout() {
   return (
     <>
-      <Stack screenOptions={ { headerShown: false, animation: 'ios_from_right' } } />
+      <Stack screenOptions={ { headerShown: false } } />
       <StatusBar style='auto' />
     </>
   )

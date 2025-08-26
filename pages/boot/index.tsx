@@ -12,10 +12,12 @@ export default React.memo(function Boot() {
   const BottomView1 = React.useMemo(
     () => (
       <View style={ styles.bottomView1 }>
-        <Text style={ styles.bottomView1Text }>隐私政策</Text>
-        <Pressable style={ styles.bottomView1Button }>
+        <Link href='/register' suppressHighlighting asChild>
+          <Text style={ styles.bottomView1Text }>隐私政策</Text>
+        </Link>
+        <Link href='/login' style={ styles.bottomView1Button } suppressHighlighting>
           <Text style={ styles.bottomView1ButtonText }>开始使用</Text>
-        </Pressable>
+        </Link>
       </View>
     ),
     []
@@ -25,10 +27,10 @@ export default React.memo(function Boot() {
     () => (
       <View style={ styles.bottomView2 }>
         <View style={ styles.bottomView2Top }>
-          <Link href='/login' style={ styles.bottomView2TopButton }>
+          <Link href='/login' style={ styles.bottomView2TopButton } suppressHighlighting>
             <Text style={ styles.bottomView2TopButtonText }>登录</Text>
           </Link>
-          <Link href='/register' style={ styles.bottomView2TopButton }>
+          <Link href='/register' style={ styles.bottomView2TopButton } suppressHighlighting>
             <Text style={ styles.bottomView2TopButtonText }>注册</Text>
           </Link>
         </View>

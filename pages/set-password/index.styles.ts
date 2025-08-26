@@ -27,13 +27,6 @@ export default StyleSheet.create({
     fontSize: 12,
     color: '#1a1a1a'
   },
-  itemInput: {
-    height: 46,
-    borderColor: '#808080',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingHorizontal: 15
-  },
   button: {
     marginTop: 48,
     marginHorizontal: 20,

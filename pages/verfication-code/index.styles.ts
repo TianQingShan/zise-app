@@ -31,13 +31,9 @@ export default StyleSheet.create({
     color: 'rgba(0, 0, 0, .9)'
   },
   input: {
-    height: 46,
-    borderWidth: 1,
-    borderColor: '#808080',
     marginTop: 35,
     marginHorizontal: 20,
     paddingHorizontal: 15,
-    borderRadius: 10
   },
   resendText: {
     marginTop: 8,
