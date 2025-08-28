@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './index.styles'
 import { Image } from 'expo-image'
-import { type ButtonItem } from './index.types'
+import { type ButtonItem, ButtonActionType } from './index.types'
 import { useRouter } from 'expo-router'
 
 export default React.memo(function Home() {
@@ -11,21 +11,25 @@ export default React.memo(function Home() {
   const buttonItems = React.useMemo<ButtonItem[]>(
     () => ([
       {
+        actionType: ButtonActionType.Deposit,
         icon: require('@/assets/images/image39.png'),
         iconSize: [20, 20],
         text: '存款'
       },
       {
+        actionType: ButtonActionType.Remittance,
         icon: require('@/assets/images/image40.png'),
         iconSize: [21, 21],
         text: '汇款'
       },
       {
+        actionType: ButtonActionType.Exchange,
         icon: require('@/assets/images/image41.png'),
         iconSize: [19, 14],
         text: '兑换'
       },
       {
+        actionType: ButtonActionType.More,
         icon: require('@/assets/images/image42.png'),
         iconSize: [28, 7],
         text: '更多'
@@ -34,11 +38,40 @@ export default React.memo(function Home() {
     []
   )
 
+  const cardItems = React.useMemo(
+    () => ([
+      { icon: require('@/assets/test/test6.png') },
+      { icon: require('@/assets/test/test5.png') },
+    ]),
+    []
+  )
+
+  const handleButtonPress = React.useCallback(
+    (actionType: ButtonActionType) => {
+      switch (actionType) {
+        case ButtonActionType.Deposit:
+          router.push('/select-currency')
+          break
+        case ButtonActionType.Remittance:
+        case ButtonActionType.Exchange:
+        case ButtonActionType.More:
+          alert('即将上线')
+          break
+        default:
+          {
+            const _never: never = actionType
+            return _never
+          }
+      }
+    },
+    []
+  )
+
   const CardItems = React.useMemo(
-    () => new Array(2).fill(undefined).map((item, index) => (
+    () => cardItems.map((item, index) => (
       <View key={ index } style={ styles.cardItem }>
         <View style={ styles.cardItemTop }>
-          <Image style={ styles.cardItemIcon } source={ require('@/assets/images/image22.png') } />
+          <Image style={ styles.cardItemIcon } source={ item.icon } />
           <Text style={ styles.cardItemCurrency }>USDT</Text>
         </View>
         <Text style={ styles.cardItemText1 }>1,000.72834</Text>
@@ -99,37 +132,41 @@ export default React.memo(function Home() {
 
   const ButtonItems = React.useMemo(
     () => buttonItems.map((item, index) => (
-      <View key={ index } style={ styles.buttonItem }>
+      <Pressable key={ index } style={ styles.buttonItem } onPress={ () => handleButtonPress(item.actionType) }>
         <View style={ styles.buttonItemIcon }>
           <Image source={ item.icon } style={ { width: item.iconSize[0], height: item.iconSize[1] } } />
         </View>
         <Text style={ styles.buttonItemText }>{ item.text }</Text>
-      </View>
+      </Pressable>
     )),
     []
   )
 
   return (
     <SafeAreaView style={ styles.container }>
-      <View style={ styles.top }>
-        <View style={ styles.topIcon1Box }>
-          <Image style={ styles.topIcon1 } source={ require('@/assets/images/image20.png') } />
+        <View style={ styles.top }>
+          <View style={ styles.topIcon1Box }>
+            <Image style={ styles.topIcon1 } source={ require('@/assets/images/image20.png') } />
+          </View>
+          <Image style={ styles.topIcon2 } source={ require('@/assets/images/image1.png') } />
+          <Image style={ styles.topIcon3 } source={ require('@/assets/images/image21.png') } />
         </View>
-        <Image style={ styles.topIcon2 } source={ require('@/assets/images/image1.png') } />
-        <Image style={ styles.topIcon3 } source={ require('@/assets/images/image21.png') } />
-      </View>
-      { KycCertification }
-      <View style={ styles.assets }>
-        <Text style={ styles.assetsText1 }>我的资产</Text>
-        <Text style={ styles.assetsText2 }>1,000.72834</Text>
-        <Text style={ styles.assetsText3 }>≈2188.723 USD</Text>
-      </View>
-      <View style={ styles.cardItems }>{ CardItems }</View>
-      <View style={ styles.buttonItems }>{ ButtonItems }</View>
-      <View style={ styles.record }>
-        <Text style={ styles.recordTitle }>记录</Text>
-        <View style={ styles.recordItems }>{ RecordItems }</View>
-      </View>
+        <ScrollView contentContainerStyle={ styles.scrollViewContentContainerStyle }>
+          { KycCertification }
+          <View style={ styles.assets }>
+            <Text style={ styles.assetsText1 }>我的资产</Text>
+            <Text style={ styles.assetsText2 }>1,000.72834</Text>
+            <Text style={ styles.assetsText3 }>≈2188.723 USD</Text>
+          </View>
+          <ScrollView horizontal>
+            <View style={ styles.cardItems }>{ CardItems }</View>
+          </ScrollView>
+          <View style={ styles.buttonItems }>{ ButtonItems }</View>
+          <View style={ styles.record }>
+            <Text style={ styles.recordTitle }>记录</Text>
+            <View style={ styles.recordItems }>{ RecordItems }</View>
+          </View>
+        </ScrollView>
     </SafeAreaView>
   )
 })

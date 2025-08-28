@@ -4,8 +4,17 @@ import { View, Text, TextInput, Pressable } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Back2 from '@/components/back2'
 import { Image } from 'expo-image'
+import { useRouter } from 'expo-router'
 
 export default React.memo(function SelectCurrency() {
+  const router = useRouter()
+  const hotItems = React.useMemo(
+    () => ([
+      { icon: require('@/assets/test/test2.png'), name: 'USDT', description: 'Tether' },
+      { icon: require('@/assets/test/test1.png'), name: 'USDC', description: 'USD Coin' },
+    ]),
+    []
+  )
   const CenterChildren = React.useMemo(
     () => (
       <Text style={ styles.centerChildren }>选择币种</Text>
@@ -28,14 +37,14 @@ export default React.memo(function SelectCurrency() {
   )
 
   const HotItems = React.useMemo(
-    () => new Array(4).fill(undefined).map((item, index) => (
-      <View key={ index } style={ styles.hotItem }>
-        <Image style={ styles.hotItemIcon } source={ require('@/assets/images/image34.png') } />
+    () => hotItems.map((item, index) => (
+      <Pressable onPress={ () => router.push('/select-network') } key={ index } style={ styles.hotItem }>
+        <Image style={ styles.hotItemIcon } source={ item.icon } />
         <View style={ styles.hotItemText }>
-          <Text style={ styles.hotItemText1 }>USDT</Text>
-          <Text style={ styles.hotItemText2 }>Tether</Text>
+          <Text style={ styles.hotItemText1 }>{ item.name }</Text>
+          <Text style={ styles.hotItemText2 }>{ item.description }</Text>
         </View>
-      </View>
+      </Pressable>
     )),
     []
   )
@@ -75,10 +84,10 @@ export default React.memo(function SelectCurrency() {
         <Text style={ styles.hotTitle }>热门</Text>
         <View style={ styles.hotItems }>{ HotItems }</View>
       </View>
-      <View style={ styles.allCurrency }>
+      {/* <View style={ styles.allCurrency }>
         <Text style={ styles.allCurrencyTitle }>全部币种</Text>
         <View style={ styles.allCurrencyItems }>{ AllCurrencyItems }</View>
-      </View>
+      </View> */}
     </SafeAreaView>
   )
 })

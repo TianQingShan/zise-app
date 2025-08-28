@@ -4,8 +4,18 @@ import { View, Text, Pressable } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Back2 from '@/components/back2'
 import { Image } from 'expo-image'
+import { useRouter } from 'expo-router'
 
 export default React.memo(function SelectNetwork() {
+  const router = useRouter()
+  const items = React.useMemo(
+    () => ([
+      { icon: require('@/assets/test/test7.png'), name: 'TRON (TRC20)', description: '最小充币额:10 USDT', time: '预计 约 7 分钟 内到账' },
+      { icon: require('@/assets/test/test8.png'), name: 'BNB Smart Chain (BEP20)', description: '最小充币额:10 USDT', time: '预计 约 7 分钟 内到账' },
+      { icon: require('@/assets/test/test9.png'), name: 'Ethereum (ERC20)', description: '最小充币额:10 USDT', time: '预计 约 15分钟 内到账' },
+    ]),
+    []
+  )
   const CenterChildren = React.useMemo(
     () => (
       <View style={ styles.centerChildren }>
@@ -20,15 +30,15 @@ export default React.memo(function SelectNetwork() {
   )
 
   const Items = React.useMemo(
-    () => new Array(5).fill(undefined).map((item, index) => (
-      <View key={ index } style={ styles.item }>
-        <Image style={ styles.itemIcon } source={ require('@/assets/images/image34.png') } />
+    () => items.map((item, index) => (
+      <Pressable key={ index } style={ styles.item } onPress={ () => router.push('/currency-details') }>
+        <Image style={ styles.itemIcon } source={ item.icon } />
         <View>
-          <Text style={ styles.itemText1 }>Ethereum(ERC20)</Text>
-          <Text style={ styles.itemText2 }>最小充币额:0.01 USDT</Text>
-          <Text style={ styles.itemText3 }>预计 约 7 分钟 内到账</Text>
+          <Text style={ styles.itemText1 }>{ item.name }</Text>
+          <Text style={ styles.itemText2 }>{ item.description }</Text>
+          <Text style={ styles.itemText3 }>{ item.time }</Text>
         </View>
-      </View>
+      </Pressable>
     )),
     []
   )

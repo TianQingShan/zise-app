@@ -4,8 +4,10 @@ import { View, Text, Pressable } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Back2 from '@/components/back2'
 import { Image } from 'expo-image'
+import { useRouter } from 'expo-router'
 
 export default React.memo(function CurrencyDetails() {
+  const router = useRouter()
   const CenterChildren = React.useMemo(
     () => (
       <View style={ styles.centerChildren }>
@@ -34,7 +36,7 @@ export default React.memo(function CurrencyDetails() {
             source={ require('@/assets/images/image26.png') }
           />
         </Pressable>
-        <Pressable>
+        <Pressable onPress={ () => router.push('/deposit-records') }>
           <Image
             style={ styles.rightChildrenIcon }
             source={ require('@/assets/images/image27.png') }
@@ -55,7 +57,7 @@ export default React.memo(function CurrencyDetails() {
       </View>
       <View style={ styles.qrCode }>
         <Text style={ styles.qrCodeNetworkLabel }>网络</Text>
-        <Pressable style={ styles.qrCodeNetworkButton }>
+        <Pressable style={ styles.qrCodeNetworkButton } onPress={ () => router.push('/select-network') }>
           <Text style={ styles.qrCodeNetworkButtonText }>Tron(TRC20)</Text>
           <Image style={ styles.qrCodeNetworkButtonIcon } source={ require('@/assets/images/image28.png') } />
         </Pressable>
@@ -68,7 +70,7 @@ export default React.memo(function CurrencyDetails() {
       </View>
       <View style={ styles.selectNetwork }>
         <View style={ styles.selectNetworkLeft }>
-          <Pressable style={ styles.selectNetworkLeftButton }>
+          <Pressable style={ styles.selectNetworkLeftButton } onPress={ () => router.push('/select-network') }>
             <Text style={ styles.selectNetworkLeftButtonText }>选择网络</Text>
             <Image
               style={ styles.selectNetworkLeftButtonIcon }

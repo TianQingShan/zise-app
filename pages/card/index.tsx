@@ -15,8 +15,8 @@ export default React.memo(function Card() {
           <Text style={ styles.addText }>+</Text>
         </View>
       </View>
-      {/* <NoCard /> */}
-      <HaveCard />
+      <NoCard />
+      {/* <HaveCard /> */}
     </SafeAreaView>
   )
 })

@@ -9,8 +9,22 @@ export default React.memo(function Account() {
   const router = useRouter()
   const items = React.useMemo(
     () => ([
-      { label: '加密货币账户' },
-      { label: '法币账户' },
+      {
+        label: '加密货币账户',
+        items: [
+          { icon: require('@/assets/test/test1.png'), name: 'USDC' },
+          { icon: require('@/assets/test/test2.png'), name: 'USDT' },
+          { icon: require('@/assets/test/test3.png'), name: 'USD1' },
+        ]
+      },
+      {
+        label: '法币账户',
+        items: [
+          { icon: require('@/assets/test/test4.png'), name: 'USD' },
+          { icon: require('@/assets/test/test5.png'), name: 'EUR' },
+          { icon: require('@/assets/test/test6.png'), name: 'GBP' },
+        ]
+      },
     ]),
     []
   )
@@ -21,11 +35,11 @@ export default React.memo(function Account() {
         <Text style={ styles.itemsLabel }>{ item.label }</Text>
         <View style={ styles.items }>
           {
-            new Array(3).fill(undefined).map((_item, _index) => (
+            item.items.map((_item, _index) => (
               <Pressable onPress={ () => router.push('/transaction-history') } key={ _index } style={ styles.item }>
                 <View style={ styles.itemLeft }>
-                  <Image style={ styles.itemLeftIcon } source={ require('@/assets/images/image24.png') } />
-                  <Text style={ styles.itemLeftText }>USDT</Text>
+                  <Image style={ styles.itemLeftIcon } source={ _item.icon } />
+                  <Text style={ styles.itemLeftText }>{ _item.name }</Text>
                 </View>
                 <View>
                   <Text style={ styles.itemRightText1 }>1,000.72834</Text>

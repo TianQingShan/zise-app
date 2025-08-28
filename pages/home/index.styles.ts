@@ -88,6 +88,10 @@ export default StyleSheet.create({
     width: 8,
     height: 6
   },
+  scrollViewContentContainerStyle: {
+    paddingBottom: 100,
+    // paddingBottom: 49.5
+  },
   assets: {
     marginHorizontal: 16,
     marginTop: 22
