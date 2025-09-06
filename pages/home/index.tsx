@@ -40,8 +40,9 @@ export default React.memo(function Home() {
 
   const cardItems = React.useMemo(
     () => ([
-      { icon: require('@/assets/test/test6.png') },
-      { icon: require('@/assets/test/test5.png') },
+      { icon: require('@/assets/test/test1.png'), text1: 'USDC', text2: '1,000.72834', text3: '≈2188.723 USD' },
+      { icon: require('@/assets/test/test2.png'), text1: 'USDT', text2: '2,500.12367', text3: '≈5452.123 USD' },
+      { icon: require('@/assets/test/test3.png'), text1: 'USD1', text2: '3,750.98745', text3: '≈8161.587 USD' },
     ]),
     []
   )
@@ -72,28 +73,29 @@ export default React.memo(function Home() {
       <View key={ index } style={ styles.cardItem }>
         <View style={ styles.cardItemTop }>
           <Image style={ styles.cardItemIcon } source={ item.icon } />
-          <Text style={ styles.cardItemCurrency }>USDT</Text>
+          <Text style={ styles.cardItemCurrency }>{ item.text1 }</Text>
         </View>
-        <Text style={ styles.cardItemText1 }>1,000.72834</Text>
-        <Text style={ styles.cardItemText2 }>≈2188.723 USD</Text>
+        <Text style={ styles.cardItemText1 }>{ item.text2 }</Text>
+        <Text style={ styles.cardItemText2 }>{ item.text3 }</Text>
       </View>
     )),
     []
   )
 
   const RecordItems = React.useMemo(
-    () => new Array(2).fill(undefined).map((item, index) => (
+    () => new Array(5).fill(undefined).map((item, index) => (
       <View key={ index } style={ styles.recordItem }>
         <View style={ styles.recordItemLeft }>
-          <Image style={ styles.recordItemLeftIcon } source={ require('@/assets/images/image23.png') } />
+          {/* <Image style={ styles.recordItemLeftIcon } source={ require('@/assets/images/image23.png') } /> */}
+          <View style={ styles.recordItemLeftIcon }></View>
           <View style={ styles.recordItemLeftText }>
-            <Text style={ styles.recordItemLeftText1 }>To your CAD balance</Text>
+            <Text style={ styles.recordItemLeftText1 }>Perply</Text>
             <Text style={ styles.recordItemLeftText2 }>2025-07-08 20:49:04</Text>
           </View>
         </View>
         <View style={ styles.recordItemRight }>
-          <Text style={ styles.recordItemRightText1 }>+ 36.84 CAD</Text>
-          <Text style={ styles.recordItemRightText2 }>已结算</Text>
+          <Text style={ styles.recordItemRightText1 }>+37.84 CAD</Text>
+          {/* <Text style={ styles.recordItemRightText2 }>已结算</Text> */}
         </View>
       </View>
     )),
@@ -154,16 +156,19 @@ export default React.memo(function Home() {
         <ScrollView contentContainerStyle={ styles.scrollViewContentContainerStyle }>
           { KycCertification }
           <View style={ styles.assets }>
-            <Text style={ styles.assetsText1 }>我的资产</Text>
-            <Text style={ styles.assetsText2 }>1,000.72834</Text>
-            <Text style={ styles.assetsText3 }>≈2188.723 USD</Text>
+            <Text style={ styles.assetsText1 }>我的资产(USD)</Text>
+            <Text style={ styles.assetsText2 }>81,000.72834</Text>
+            {/* <Text style={ styles.assetsText3 }>≈2188.723 USD</Text> */}
           </View>
+          <View style={ styles.buttonItems }>{ ButtonItems }</View>
           <ScrollView horizontal>
             <View style={ styles.cardItems }>{ CardItems }</View>
           </ScrollView>
-          <View style={ styles.buttonItems }>{ ButtonItems }</View>
           <View style={ styles.record }>
-            <Text style={ styles.recordTitle }>记录</Text>
+            <View style={ styles.recordTop }>
+              <Text style={ styles.recordTitle }>记录</Text>
+              <Text style={ styles.recordTitle2 }>...</Text>
+            </View>
             <View style={ styles.recordItems }>{ RecordItems }</View>
           </View>
         </ScrollView>

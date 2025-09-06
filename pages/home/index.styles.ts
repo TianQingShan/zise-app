@@ -2,12 +2,13 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    paddingTop: 14,
+    paddingTop: 12,
     backgroundColor: '#fff',
     flexGrow: 1
   },
   top: {
-    marginHorizontal: 16,
+    marginStart: 29,
+    marginEnd: 27,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
@@ -33,9 +34,9 @@ export default StyleSheet.create({
     aspectRatio: 1
   },
   kycCertification: {
-    marginTop: 24,
-    marginStart: 16,
-    marginEnd: 24,
+    marginTop: 22,
+    marginStart: 29,
+    marginEnd: 27,
     backgroundColor: '#f3f3f3',
     borderRadius: 8,
     borderWidth: 0.5,
@@ -93,17 +94,19 @@ export default StyleSheet.create({
     // paddingBottom: 49.5
   },
   assets: {
-    marginHorizontal: 16,
+    marginHorizontal: 31,
     marginTop: 22
   },
   assetsText1: {
-    fontSize: 16,
-    color: '#1a1a1a'
+    fontSize: 15,
+    color: 'rgba(26, 26, 26, .5)',
+    fontWeight: 600
   },
   assetsText2: {
-    marginTop: 1,
+    marginTop: 10,
     fontSize: 32,
-    color: '#000000'
+    fontWeight: 600,
+    color: '#000'
   },
   assetsText3: {
     marginTop: 6,
@@ -111,55 +114,53 @@ export default StyleSheet.create({
     color: '#808080'
   },
   cardItems: {
-    marginHorizontal: 16,
-    marginTop: 22,
+    marginHorizontal: 23,
+    marginTop: 18,
     flexDirection: 'row',
-    columnGap: 12
+    columnGap: 13
   },
   cardItem: {
-    width: 249,
+    width: 158,
     flexShrink: 0,
     backgroundColor: '#f5f5f5',
     borderRadius: 15,
-    paddingVertical: 21,
-    paddingHorizontal: 26
+    padding: 14
   },
   cardItemTop: {
     flexDirection: 'row',
     alignItems: 'center',
-    columnGap: 4
+    columnGap: 3
   },
   cardItemIcon: {
-    width: 23,
+    width: 15,
     aspectRatio: 1
   },
   cardItemCurrency: {
-    fontSize: 18,
-    color: 'rgba(26, 26, 26, .65)'
+    fontSize: 10,
+    color: 'rgba(26, 26, 26, .65)',
+    fontWeight: 500
   },
   cardItemText1: {
-    marginTop: 24,
-    fontSize: 24,
-    color: 'rgba(0, 0, 0, 1)'
+    marginTop: 5,
+    fontSize: 14,
+    color: '#000'
   },
   cardItemText2: {
-    marginTop: 4,
-    fontSize: 14,
+    fontSize: 10,
     color: '#828282'
   },
   buttonItems: {
-    marginTop: 28,
+    marginTop: 12,
     flexDirection: 'row',
-    columnGap: 28,
-    marginStart: 25,
-    marginEnd: 30
+    justifyContent: 'space-between',
+    marginStart: 29,
+    marginEnd: 26
   },
   buttonItem: {
-    width: 0,
-    flexGrow: 1,
     rowGap: 5,
   },
   buttonItemIcon: {
+    width: 45,
     aspectRatio: 1,
     borderRadius: 999,
     backgroundColor: '#556aff',
@@ -170,51 +171,78 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 12,
     fontWeight: 400,
-    color: '#2c2c2c'
+    color: '#2c2c2c',
   },
   record: {
-    marginHorizontal: 16,
-    marginTop: 35
+    marginTop: 22,
+    marginStart: 29,
+    marginEnd: 31
+  },
+  recordTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   recordTitle: {
-    fontSize: 20,
-    color: '#1a1a1a'
+    fontSize: 15,
+    color: '#1a1a1a',
+    fontWeight: 400
+  },
+  recordTitle2: {
+    fontWeight: 400,
+    color: 'rgba(26, 26, 26, .65)',
+    fontSize: 15,
+    marginEnd: 15
   },
   recordItems: {
-    marginTop: 18,
-    rowGap: 24
+    marginTop: 10,
+    rowGap: 17,
+    borderWidth: 0.5,
+    borderColor: 'rgba(199, 199, 199, .31)',
+    borderRadius: 23,
+    paddingTop: 17,
+    paddingEnd: 25,
+    paddingBottom: 33,
+    paddingStart: 13
   },
   recordItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4
   },
   recordItemLeft: {
-    marginVertical: 1,
     flexDirection: 'row',
-    columnGap: 8
+    alignItems: 'center',
+    columnGap: 9
   },
   recordItemLeftIcon: {
-    width: 42,
+    width: 26,
     aspectRatio: 1,
+    backgroundColor: '#EAEEF6',
+    borderRadius: 999
   },
   recordItemLeftText: {
-    justifyContent: 'space-between'
+    // justifyContent: 'space-between'
   },
   recordItemLeftText1: {
-    fontSize: 14,
-    color: '#1a1a1a'
+    fontSize: 10,
+    fontWeight: 600,
+    color: '#000'
   },
   recordItemLeftText2: {
-    fontSize: 12,
-    color: '#808080'
+    fontWeight: 400,
+    fontSize: 10,
+    color: '#979797'
   },
   recordItemRight: {
     alignItems: 'flex-end',
     justifyContent: 'space-between'
   },
   recordItemRightText1: {
-    fontSize: 16,
-    color: '#1a1a1a'
+    fontWeight: 600,
+    fontSize: 12,
+    color: '#000'
   },
   recordItemRightText2: {
     fontSize: 12,
